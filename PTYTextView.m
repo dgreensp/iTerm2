@@ -8107,7 +8107,7 @@ static double EuclideanDistance(NSPoint p1, NSPoint p2) {
 {
     [self _modifyFont:font baseline:baseline into:fontInfo];
     NSFontManager* fontManager = [NSFontManager sharedFontManager];
-    NSFont* boldFont = [fontManager convertFont:font toHaveTrait:NSBoldFontMask];
+    NSFont* boldFont = [fontManager convertWeight:YES ofFont:font]; // increase weight
     if (boldFont && ([fontManager traitsOfFont:boldFont] & NSBoldFontMask)) {
         fontInfo->boldVersion = (PTYFontInfo*)malloc(sizeof(PTYFontInfo));
         fontInfo->boldVersion->font = NULL;
